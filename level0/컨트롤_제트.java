@@ -14,7 +14,7 @@ public class 컨트롤_제트 {
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < str.length; i++) {
             if (str[i].equals("Z") && !stack.empty()) {
-                    stack.pop();
+                stack.pop();
             } else {
                 stack.push(Integer.parseInt(str[i]));
             }
