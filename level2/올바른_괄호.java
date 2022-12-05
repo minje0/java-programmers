@@ -1,34 +1,23 @@
 package level2;
 
-import java.util.Stack;
-
-
-
 class 올바른_괄호 {
-    public static void main(String[] args) {
-
-    }
     boolean solution(String s) {
-        boolean answer = true;
-        Stack<Character> stack = new Stack<>();
-
-        for(int i = 0; i < s.length(); i++){
-            char c = s.charAt(i);
-
-            //여는 괄호일 때
-            if(c == '('){
-                stack.push(c);
+        boolean answer = false;
+        int count = 0;
+        for(int i = 0; i<s.length();i++){
+            if(s.charAt(i) == '('){
+                count++;
             }
-
-            //닫는 괄호일 때
-            if(c == ')'){
-                if(stack.size() == 0){
-                    return false;
-                }
-                else stack.pop();
+            if(s.charAt(i) == ')'){
+                count--;
+            }
+            if(count < 0){
+                break;
             }
         }
-        if(stack.size() != 0) answer = false;
+        if(count == 0){
+            answer = true;
+        }
 
         return answer;
     }
